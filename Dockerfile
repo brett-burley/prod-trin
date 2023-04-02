@@ -10,7 +10,7 @@ COPY ["package.json", "package-lock.json*", "./"]
 
 RUN npm install
 
-CMD [ "expo", "build:web" ]
+CMD [ "npx", "expo", "export:web" ]
 
 COPY . .
 

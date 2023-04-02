@@ -1,31 +1,28 @@
 import { useEffect } from 'react';
 import { Pressable, View, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Button, Card, Image } from "@rneui/themed";
+import { Divider, Button, Card, Image } from "@rneui/themed";
 import useLibrary from '../../hooks/useLibrary';
-
 
 
 export default function Books()
 {
-  const { navigate } = useNavigation();
-
-  useEffect(() => {
-      const book = {
-        title: "The Book",
-        id: "TheBook",
-        author: "BB",
-        imgUri: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACAASURBVHic7L1rtG3JVR72zbXPOffdfV/dfW+/1N1qUD/UICEFYg2wAWMwRkICB4cQO45HkkEIGbGJjU38isbIwE6IbTLs4RHjMAwEiI0wIISwEBIS2AbZSCD06Na7pdbtd+t2q++95312zfyomrNm1a6199rn7HP2q2aP22ftWlWzHmut+r6aNauKUKVKlSpVqsyhfOOjz5+mVf7WVfA3rBK/Zo36rzzR9G9ZbfrHVolp0/V2bvRXP3+9v/Kj73vVbT877fLOmtC0C1ClSpUqVaoMk9s+wqfu7b30zTev7f6ZVXJfvdbs3XOC+heON/21hriTjue2Tz...",
-        textUri: false,
-        img: null
-      }
-
-      navigate('Book', { book });
-  }, [])
-
   return (
     <View style={sty.books}>
-      <AllBooks />
+      <View style={sty.booksSection}>
+        <Text style={sty.sectionTitle}>Free Books</Text>
+        <View style={sty.booksRow}>
+        <AllBooks />
+        </View>
+      </View>
+
+      <Divider width={1} insertType="left" color="#2089dc" style={sty.divider} />
+
+      <View style={sty.booksSection}>
+        <Text style={sty.sectionTitle}>Your Books</Text>
+        <View style={sty.booksRow}>
+        </View>
+      </View>
     </View>
   );
 }
@@ -89,10 +86,28 @@ function BookImage({ t })
 const sty = StyleSheet.create({
   books: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
+    height: '100%',
     alignItems: 'center',
-    gap: 40,
+    backgroundColor: '#fff',
+  },
+  booksSection: {
+    flex: 1,
+  },
+  booksRow: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  sectionTitle: {
+    textAlign: 'center',
+    margin: 10,
+    fontSize: 25,
+    fontWeight: "500",
+  },
+  divider: {
+    width: '90%',
+    margin: 20,
   },
   pressable: {
     height: 300,
@@ -121,4 +136,3 @@ const sty = StyleSheet.create({
     margin: 5,
   },
 });
-

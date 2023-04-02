@@ -4,15 +4,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from '@rneui/themed';
 
 import Webpage from '../screens/Webpage';
-//import Library from '../screens/Library';
+import Library from '../screens/Library';
 //import Book from '../book/Book';
 
 const Tab = createBottomTabNavigator();
 
 export default function ScreenNav()
 {
-  // TODO: REMOVE true
-  let routeName = Platform.OS === 'web' || true ? 'Webpage' : 'Library';
+  let routeName = Platform.OS === 'web' ? 'Webpage' : 'Library';
   
   return (
     <NavigationContainer>
@@ -33,7 +32,6 @@ export default function ScreenNav()
           }}
         />
 
-        {/*
         <Tab.Screen 
           name='Library'
           component={Library} 
@@ -46,6 +44,7 @@ export default function ScreenNav()
           }}
         />
 
+        {/*
         <Tab.Screen 
           name='Book'
           component={Book}

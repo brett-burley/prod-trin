@@ -17,7 +17,7 @@ export default function Webpage({ navigation })
           </Text>
         </View>
 
-        <GotoBtn onPress={() => console.log("navigation.navigate('Library')")} />
+        <GotoBtn onPress={() => navigation.navigate('Library')} />
 
         <MobileBtns />
       </View>

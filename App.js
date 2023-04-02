@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider, createTheme } from '@rneui/themed';
-//import AllStates from './components/layout/AllStates';
+import AllStates from './components/layout/AllStates';
 import ScreenNav from './components/navs/ScreenNav';
 
 const theme = getTheme();
@@ -9,12 +9,12 @@ const theme = getTheme();
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      {/*<AllStates>*/}
+      <AllStates>
         <SafeAreaProvider>
-          {/*<StatusBar style="auto" />*/}
+          <StatusBar style="auto" />
           <ScreenNav />
         </SafeAreaProvider>
-      {/*</AllStates>*/}
+      </AllStates>
     </ThemeProvider>
   );
 }
