@@ -4,6 +4,8 @@ FROM node:latest
 
 ENV NODE_ENV=production
 
+EXPOSE 19000 19001 19002 19006
+
 WORKDIR /app
 
 COPY ["package.json", "package-lock.json*", "./"]
@@ -14,4 +16,4 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+CMD [ "npx", "expo", "start", "--web" ]
