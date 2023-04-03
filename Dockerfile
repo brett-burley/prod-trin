@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM node:18-alpine
+FROM node:latest
 
 ENV NODE_ENV=production
 
@@ -8,10 +8,12 @@ WORKDIR /app
 
 COPY ["package.json", "package-lock.json*", "./"]
 
+RUN npm install --global expo-cli@latest npm@latest
+
 RUN npm install
 
-CMD [ "expo", "build:web" ]
-
 COPY . .
+
+EXPOSE 3000
 
 CMD [ "npx", "serve", "web-build" ]

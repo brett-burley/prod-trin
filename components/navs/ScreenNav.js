@@ -31,7 +31,7 @@ export default function ScreenNav()
             tabBarShowLabel: false,
           }}
         />
-
+      
         <Tab.Screen 
           name='Library'
           component={Library} 
